@@ -1,2 +1,2 @@
 # truco
-Truco Argentino en JavaScript. Tomas Treglia 
+Truco Argentino en JavaScript utilizando Grafo. Tomas Treglia 
