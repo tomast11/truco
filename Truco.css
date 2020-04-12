@@ -1,0 +1,91 @@
+#TableroJ1{
+float:left;
+width:500px;
+height:700px;
+background:#00A011;
+}
+#Separador{
+float:left;
+width:10px;
+height:700px;
+background:#A05000;
+}
+#TableroJ2{
+float:left;
+width:500px;
+height:700px;
+background:#00A011;
+}
+#Manos{
+position: absolute;
+top: 610px;
+width:1010px;
+height:100px;
+background:#A05000;
+}
+#MJ1{
+position:absolute;
+left: 150px;
+}
+#MJ2{
+position:absolute;
+left: 700px;
+}
+#J1Carta1{
+float:left;
+}
+#J1Carta2{
+float:left;
+}
+#J1Carta3{
+float:left;
+}
+#J2Carta1{
+float:left;
+}
+#J2Carta2{
+float:left;
+}
+#J2Carta3{
+float:left;
+}
+#Mazo{
+  position: absolute;
+  left: 480px;
+}
+#JugadasJ1{
+position: absolute;
+float:left;
+top: 50px;
+}
+#CartasJ1{
+float:left;
+position: absolute;
+left: 450px;
+top: 50px;
+}
+#JugadasJ2{
+float:left;
+position: absolute;
+left: 907px;
+top: 50px;
+}
+#CartasJ2{
+float:left;
+position: absolute;
+left: 530px;
+top: 50px;
+}
+.boxes button {
+display: block;
+width: 100%;
+text-align: center;
+}
+#PuntosJ1{
+position:absolute;
+left: 150px;
+}
+#PuntosJ2{
+position: absolute;
+left: 700px;
+}

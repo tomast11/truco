@@ -1,0 +1,25 @@
+{
+"Inicio" : [X,  1,  1,  1,  null,  1,  1,  null,  null,  null,  null,  null, ],
+
+"Truco" : [null,  X,  null,  1,  null,  null,  1,  null,  1,  null,  1,  1, ],
+
+"Envido" : [null,  null,  X,  1,  1,  1,  1,  1,  null,  null,  1,  null, ],
+
+"Mazo" : [null,  null,  null,  X,  null,  null,  null,  null,  null,  null,  null,  null, ],
+
+"2Envido" : [null,  null,  null,  1,  X,  1,  1,  1,  null,  null,  1,  null, ],
+
+"RealEnvido" : [null,  null,  null,  1,  null,  X,  1,  1,  null,  null,  1,  nulll, ],
+
+"FaltaEnvido" : [null,  null,  null,  1,  null,  null,  X,  1,  null,  null,  1,  null, ],
+
+"NoquieroEnvido" : [null,  1,  null,  1,  null,  null,  null,  X,  null,  null,  null,  null, ],
+
+"Retruco" : [null,  null,  null,  1,  null,  null,  null,  null,  X,  1,  null,  1, ],
+
+"Vale4" : [null,  null,  null,  1,  null,  null,  null,  null,  null,  X,  null,  1, ],
+
+"QuieroEnvido" : [null,  null,  null,  1,  1,  1,  1,  null,  null,  null,  X,  null, ],
+
+"QuieroTruco" : [null,  null,  null,  1,  null,  null,  null,  null,  1,  null,  null,  X, ],
+}

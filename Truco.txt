@@ -1,0 +1,166 @@
+// <meta charset="utf-8" />
+
+
+
+//array de cartas que compone el mazo
+var cartas=new Array();
+// array clave valor con los palos
+var palos={"b":"bastos", "e":"espadas", "o":"oros", "c":"copas"}
+//xx
+var jugadasPosibles = new Array();
+jugadasPosibles = ['Inicio', 'Truco', 'Envido', 'Mazo', '2Envido', 'RealEnvido', 'FaltaEnvido', 'NoquieroEnvido', 'Retruco', 'Vale4', 'QuieroEnvido', 'QuieroTruco', 'JugarCarta1', 'JugarCarta2', 'JugarCarta3'];
+//Creo Matriz Y
+var Matriz = new Array();
+// objeto jugador
+var Jugador = (function() {
+	function Jugador(name) {
+		this.cartas = [];
+		this.name = name;
+		this.envido = 0;
+		this.esMano=false;
+		this.turno=false;
+	}
+	return Jugador;
+})();
+//objeto carta
+var Carta = (function() {
+	function Carta(numero, palo) {
+		this.palo = palo;
+		this.numero = numero;
+	}
+	return Carta;
+})();
+
+//objeto init
+var init = (function(){
+	function init (){
+		this.Jugador1 = new Jugador("Jugador 1");
+		this.Jugador2 = new Jugador("Jugador 2");
+	
+		sortearInicio();
+		armarMazo();
+		mezclarMazo();
+		repartirManos();
+		armarMatriz()
+	}
+	return init;
+})();
+
+//function para armar el mazo
+function armarMazo(){	
+	for (var PaloI in palos){
+		var palo = palos[PaloI];
+		
+		for(var i = 1; i <= 12; i++) {
+				if(i == 8 || i == 9) continue;
+				cartas.push(new Carta(i, palo));							
+			}
+	}
+}
+
+//function para mezclar el mazo
+function mezclarMazo () {
+	for (i=0;i<40;i++){
+		posicion1=parseInt(Math.random()*40);
+		tmp=cartas[i];
+		cartas[i]=cartas[posicion1];
+		cartas[posicion1]=tmp;
+	}	
+}
+
+function repartirManos(){	
+	var i=0;	
+	//compruebo si el jugador 2 es mano
+	if(Jugador2.turno){i=1;}	
+	
+	for (j=1;j<=6;j++){
+		var carta = cartas[j-1];
+		if(i++ % 2 == 0){
+			//asigno carta al jugador y la saco del mazo
+			Jugador1.cartas.push(carta);
+			cartas.splice(j-1, 1);			
+			//renderizo cartas
+			var MJ1=document.getElementById("MJ1");
+			MJ1.innerHTML += "<button id='Carta"+j+"'>"+carta.numero + " de " + carta.palo + "</button>";
+			
+			console.log("Carta"+j+":"+carta.numero + " de " + carta.palo+Jugador1.name);
+		}
+		else{
+			//asigno carta al jugador y la saco del mazo
+			Jugador2.cartas.push(carta);
+			cartas.splice(j-1, 1);
+			//renderizo cartas
+			var MJ2=document.getElementById("MJ2");
+			MJ2.innerHTML += "<button id='Carta"+j+"'>"+carta.numero + " de " + carta.palo + "</button>";
+			console.log("Carta"+j+":"+carta.numero + " de " + carta.palo+Jugador2.name);
+		}			
+	}
+}
+
+function sortearInicio() {  
+	var num = Math.random() * (2 - 0) + 0;
+	
+	if (num<1){
+		Jugador1.turno=true;
+	}else{
+		Jugador2.turno=true;
+	}
+  
+  console.log(num);
+  console.log(Jugador1.turno);
+  console.log(Jugador2.turno);
+}
+
+function armarMatriz(){
+	
+		
+	for (i=0; i<jugadasPosibles.length; i++){
+		for (j=0 ; j<jugadasPosibles.length; j++){
+			
+			Matriz[i]=new Array();
+			
+			Matriz[0][j] = jugadasPosibles[j];
+			console.log(Matriz[i][j]);
+		}			 
+	}		
+}
+
+function mostrarJugadasJ1(){}
+
+function mostrarJugadasJ2(){}
+
+function turno(){
+	if (Jugador1.turno){
+		
+		mostrarJugadasJ1();
+		
+		
+	}else{
+		
+		mostrarJugadasJ2();
+	}
+	
+}
+
+document.getElementById("Empezar").onclick = function(){
+	init();
+	//oculto boton para empezar
+	document.getElementById('Empezar').style.display = 'none';	
+	
+	document.getElementById('FaltaEnvidoJ2').style.display = 'none';
+}
+
+document.getElementById("EnvidoJ2").onclick = function(){
+	console.log()
+	
+}
+
+
+
+/* console.log(Jugador1.cartas[0].numero, Jugador1.cartas[0].palo)
+console.log(Jugador1.cartas[1].numero, Jugador1.cartas[1].palo)
+console.log(Jugador1.cartas[2].numero, Jugador1.cartas[2].palo)
+
+console.log(Jugador2.cartas[0].numero, Jugador1.cartas[0].palo)
+console.log(Jugador2.cartas[1].numero, Jugador2.cartas[1].palo)
+console.log(Jugador2.cartas[2].numero, Jugador2.cartas[2].palo) */
